@@ -1,3 +1,4 @@
+set encoding=utf-8
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -11,7 +12,11 @@ Plugin 'OmniCppComplete'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'hari-rangarajan/CCTree'
-
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'mkitt/tabline.vim'
 
 call vundle#end()            " required
 set t_Co=256
@@ -201,3 +206,21 @@ if has("cscope")
 endif
 
 
+
+" For python
+au BufNewFile,BufRead *.py set tabstop=4
+au BufNewFile,BufRead *.py set softtabstop=4
+au BufNewFile,BufRead *.py set shiftwidth=4
+au BufNewFile,BufRead *.py set expandtab
+au BufNewFile,BufRead *.py set autoindent
+au BufNewFile,BufRead *.py set fileformat=unix
+highlight BadWhitespace ctermbg=red guibg=red
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+let python_highlight_all=1
+syntax on
+
+
+" Tab setting
+hi TabLine      ctermfg=White  ctermbg=DarkBlue      cterm=NONE
+hi TabLineFill  ctermfg=White  ctermbg=DarkBlue      cterm=NONE
+hi TabLineSel   ctermfg=White  ctermbg=Blue          cterm=NONE
