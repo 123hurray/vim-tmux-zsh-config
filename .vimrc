@@ -206,7 +206,6 @@ if has("cscope")
 endif
 
 
-
 " For python
 au BufNewFile,BufRead *.py set tabstop=4
 au BufNewFile,BufRead *.py set softtabstop=4
@@ -221,6 +220,25 @@ syntax on
 
 
 " Tab setting
-hi TabLine      ctermfg=White  ctermbg=DarkBlue      cterm=NONE
-hi TabLineFill  ctermfg=White  ctermbg=DarkBlue      cterm=NONE
+hi TabLine      ctermfg=White  ctermbg=033    cterm=NONE
+hi TabLineFill  ctermfg=White  ctermbg=033    cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=Blue          cterm=NONE
+
+" Tab shortcut
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+nnoremap <F1> :tabprevious<CR>
+nnoremap <F2> :tabnext<CR>
+let g:lasttab = 1
+nnoremap <F3> :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
+
+
